@@ -18,7 +18,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void createUsersTable() {
         try(Statement statement = connection.createStatement()) {
-            statement.execute("CREATE TABLE `users`.`users_table` (\n" +
+            statement.execute("CREATE TABLE IF NOT EXISTS `users`.`users_table` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT, \n " +
                     "  `name` VARCHAR(45) NOT NULL,\n" +
                     "  `lastName` VARCHAR(45) NOT NULL,\n" +
@@ -26,16 +26,16 @@ public class UserDaoJDBCImpl implements UserDao {
                     "  PRIMARY KEY (`id`));");
             System.out.println("Таблица создана");
         } catch (SQLException e) {
-            System.out.println("Таблица уже существует");
+            throw new RuntimeException(e);
         }
     }
 
     public void dropUsersTable() {
         try(Statement statement = connection.createStatement()) {
-            statement.execute("DROP TABLE `users`.`users_table`;");
+            statement.execute("DROP TABLE IF EXISTS `users`.`users_table`;");
             System.out.println("Таблица удалена");
         } catch (SQLException e) {
-            System.out.println("Указанной таблицы не сущетсвует");
+            throw new RuntimeException(e);
         }
     }
 
