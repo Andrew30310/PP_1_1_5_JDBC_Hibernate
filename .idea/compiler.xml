@@ -9,5 +9,11 @@
         <module name="TaskJDBC" />
       </profile>
     </annotationProcessing>
+<<<<<<< HEAD
+=======
+    <bytecodeTargetLevel>
+      <module name="hibernate-java-config-example" target="1.5" />
+    </bytecodeTargetLevel>
+>>>>>>> hibernateBranch
   </component>
 </project>
