@@ -14,7 +14,7 @@ import java.util.List;
 import static jm.task.core.jdbc.util.Util.getSessionFactory;
 
 public class UserDaoHibernateImpl implements UserDao {
-    private static SessionFactory sessionFactory = getSessionFactory();
+    private SessionFactory sessionFactory = getSessionFactory();
 
     public UserDaoHibernateImpl() {
 
