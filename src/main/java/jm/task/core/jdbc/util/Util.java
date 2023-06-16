@@ -30,8 +30,9 @@ public class Util {
             throw new RuntimeException(e);
         }
     }
-    public static SessionFactory getSessionFactory() {
 
+    public static SessionFactory getSessionFactory() {
+        if (SESSION_FACTORY == null) {
             try {
                 Configuration configuration = new Configuration();
 
@@ -55,6 +56,7 @@ public class Util {
                 System.out.println("Проблема создания Session Factory");
                 e.printStackTrace();
             }
+        }
         return SESSION_FACTORY;
     }
 }
